@@ -1,0 +1,14 @@
+services:
+  - docker
+
+before_script:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" 
+
+script:
+  - for rel in `cat releases`; do export vault_ver="${rel}" && docker build --build-arg VAULT_VERSION="${vault_ver}" -t "richarvey/vault:${vault_ver}" . ; done
+  - for rel in `cat releases`; do export vault_ver="${rel}" && docker push "richarvey/vault:${vault_ver}" ; done
+  - latest=`cat latest` && docker tag richarvey/vault:${latest} richarvey/vault:latest && docker push "richarvey/vault:latest"
+
+notifications:
+  slack: ngineered:EIKJFrzibOe0TwUhLXNe8Q2Q
+

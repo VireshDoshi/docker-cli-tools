@@ -1,0 +1,14 @@
+services:
+  - docker
+
+before_script:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" 
+
+script:
+  - for rel in `cat releases`; do export terraform_ver="${rel}" && docker build --build-arg TERRAFORM_VERSION="${terraform_ver}" -t "richarvey/terraform:${terraform_ver}" . ; done
+  - for rel in `cat releases`; do export terraform_ver="${rel}" && docker push "richarvey/terraform:${terraform_ver}" ; done
+  - latest=`cat latest` && docker tag richarvey/terraform:${latest} richarvey/terraform:latest && docker push "richarvey/terraform:latest"
+
+notifications:
+  slack: ngineered:EIKJFrzibOe0TwUhLXNe8Q2Q
+

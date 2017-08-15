@@ -1,0 +1,27 @@
+kubectl() {
+  docker run -it -v ~/:/home/kubeuser/ -v `pwd`:/cfg -v ~/.kube:/home/kubeuser/.kube --rm richarvey/kubectl:latest "$@";
+}
+
+aws() {
+  docker run -it -v ~/:/home/awsuser/ -v `pwd`:/cfg -v ~/.aws:/home/awsuser/.aws --rm richarvey/awscli:latest "$@";
+}
+
+aws-shell() {
+  docker run -it -v ~/:/home/awsuser/ -v `pwd`:/cfg -v ~/:/home/awsuser/ -v ~/.aws:/home/awsuser/.aws --rm richarvey/aws-shell:latest;
+}
+
+helm() {
+  docker run -it -v ~/:/home/kubeuser/ -v `pwd`:/cfg -v ~/.kube:/home/kubeuser/.kube --rm richarvey/helm:latest "$@";
+}
+
+serverless() {
+  docker run -it -v ~/:/home/serverlessuser/ -v `pwd`:/cfg -v ~/.aws:/home/serverlessuser/.aws --rm richarvey/serverless:latest "$@";
+}
+
+terraform() {
+  docker run -it -v ~/:/home/terraformuser/ -v `pwd`:/cfg -v ~/.aws:/home/terraformuser/.aws --rm richarvey/terraform:latest "$@";
+}
+
+vault() {
+  docker run -it -v ~/:/home/vaultuser/ -v `pwd`:/cfg -v ~/.aws:/home/vaultuser/.aws --rm richarvey/vault:latest "$@";
+}
