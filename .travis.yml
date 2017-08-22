@@ -15,5 +15,7 @@ jobs:
     - script: ./build awscli
     - script: ./build kubectl
 
+script: skip
+
 notifications:
   slack: ngineered:EIKJFrzibOe0TwUhLXNe8Q2Q
