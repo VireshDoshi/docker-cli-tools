@@ -13,11 +13,18 @@ jobs:
   include:
     - stage: build-awscli
       script: ./build awscli
-    - stage: build-awscli
+    - stage: build-aws0shell
       script: ./build aws-shell
     - stage: build-kubectl
       script: ./build kubectl
-
+    - stage: build-helm
+      script: ./build helm
+    - stage: build-serverless
+      script: ./build serverless
+    - stage: build-terraform
+      script: ./build terraform
+    - stage: build-vault
+      script: ./build vault
 
 notifications:
   slack: ngineered:EIKJFrzibOe0TwUhLXNe8Q2Q

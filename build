@@ -1,3 +1,10 @@
 #!/bin/bash
 
-echo "moo $1"
+export status=`curl -Is https://hub.docker.com/v2/repositories/richarvey/${1}/tags/$(cat dockerfiles/${1}/latest)/ | head -n 1|cut -d$' ' -f2`
+
+if [ ${status} == "200" ]; then
+    echo "build exists"
+    exit 0
+else
+    echo "we need to build this"
+fi
