@@ -11,9 +11,10 @@ before_script:
 
 jobs:
   include:
-    - stage: build
+    - stage: build-awscli
       script: ./build awscli
-    - script: ./build kubectl
+    - stage: build-kubectl
+      script: ./build kubectl
 
 
 notifications:
