@@ -12,7 +12,7 @@ before_script:
 jobs:
   include:
     - stage: build
-    script: ./build awscli
+      script: ./build awscli
     - script: ./build kubectl
 
 
