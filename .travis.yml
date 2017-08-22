@@ -13,6 +13,8 @@ jobs:
   include:
     - stage: build-awscli
       script: ./build awscli
+    - stage: build-awscli
+      script: ./build aws-shell
     - stage: build-kubectl
       script: ./build kubectl
 
