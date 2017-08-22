@@ -15,13 +15,5 @@ jobs:
     - script: ./build awscli
     - script: ./build kubectl
 
-#script:
-  # awscli
-  #- for rel in `cat releases`; do export aws_ver="${rel}" && docker build --build-arg CLI_VERSION="${aws_ver}" -t "richarvey/awscli:${aws_ver}" . ; done
-  #- for rel in `cat releases`; do export aws_ver="${rel}" && docker push "richarvey/awscli:${aws_ver}" ; done
-  # - latest=`cat latest` && docker tag richarvey/awscli:${latest} richarvey/awscli:latest && docker push "richarvey/awscli:latest"
-  #  - echo "moo"
-  #  - docker --version
-
 notifications:
   slack: ngineered:EIKJFrzibOe0TwUhLXNe8Q2Q
