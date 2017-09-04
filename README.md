@@ -1,3 +1,5 @@
+[![Travis](https://img.shields.io/travis/richarvey/docker-cli-tools.svg?style=flat-square)](https://travis-ci.org/richarvey/docker-cli-tools)
+
 ## Docker(ised) CLI tools
 
 Dockerised version of tools for running frameworks and cli tools on any machine easily.
