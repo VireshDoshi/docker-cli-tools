@@ -2,7 +2,7 @@ FROM alpine:latest
 MAINTAINER ric@ngd.io
 
 ARG VERSION
-ENV terraform_url="https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${VERSION}_linux_amd64.zip"
+ENV terraform_url="https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip"
 
 RUN apk add --no-cache --update --virtual .build-deps \
     curl  \
