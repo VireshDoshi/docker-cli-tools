@@ -3,9 +3,9 @@ MAINTAINER ric@ngd.io
 
 USER root
 
-ARG SHELL_VERSION
+ARG VERSION
 
-RUN pip3 install aws-shell==${SHELL_VERSION} && \
+RUN pip3 install aws-shell==${VERSION} && \
     pip3 install boto3
 
 WORKDIR /cfg

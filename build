@@ -3,8 +3,17 @@
 export status=`curl -Is https://hub.docker.com/v2/repositories/richarvey/${1}/tags/$(cat dockerfiles/${1}/latest)/ | head -n 1|cut -d$' ' -f2`
 
 if [ ${status} == "200" ]; then
-    echo "build exists"
+    echo "Build Exists: Nothing to do!"
     exit 0
 else
-    echo "we need to build this"
+    echo "Building: ${1}"
+    cd dockerfiles/${1}/
+    for rel in `cat releases`; do 
+        export VERSION="${rel}" && \
+        docker build --build-arg VERSION="${VERSION}" -t "richarvey/awscli:${VERSION}" . && \
+        docker push "richarvey/${1}:${VERSION}"
+    done
+
+    latest=`cat latest` && docker tag richarvey/${1}:${latest} richarvey/${1}:latest && docker push "richarvey/${1}:latest"
+
 fi

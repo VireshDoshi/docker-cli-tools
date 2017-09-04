@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER ric@ngd.io
 
-ARG SERVERLESS_VERSION
+ARG VERSION
 
 RUN apk add --no-cache --update --virtual .build-deps \
     curl  \
@@ -10,7 +10,7 @@ RUN apk add --no-cache --update --virtual .build-deps \
     python3 \
     bash && \
     adduser -D -u 1000 serverlessuser && \
-    npm install serverless@${SERVERLESS_VERSION} -g && \
+    npm install serverless@${VERSION} -g && \
     pip3 install awscli
 
 WORKDIR /cfg
