@@ -10,7 +10,7 @@ else
     cd dockerfiles/${1}/
     for rel in `cat releases`; do 
         export VERSION="${rel}" && \
-        docker build --build-arg VERSION="${VERSION}" -t "richarvey/awscli:${VERSION}" . && \
+        docker build --build-arg VERSION="${VERSION}" -t "richarvey/${1}:${VERSION}" . && \
         docker push "richarvey/${1}:${VERSION}"
     done
 
