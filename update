@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export project_root=`pwd`
+
+for i in `ls dockerfiles/`; do
+  echo "updating: ${i}"
+  cd ${project_root}/dockerfiles/${i}
+  ./get_tags.sh
+done
