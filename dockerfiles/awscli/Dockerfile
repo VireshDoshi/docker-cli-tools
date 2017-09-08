@@ -3,7 +3,9 @@ MAINTAINER ric@ngd.io
 
 ARG VERSION
 
-RUN apk add --no-cache --update \
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache --update \
     groff \
     less \
     python3 && \
