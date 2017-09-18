@@ -48,3 +48,4 @@ Build the docker images:
 ```
 for rel in `cat releases`; do export shell_ver="${rel}" && docker build --build-arg SHELL_VERSION="${shell_ver}" -t "aws-shell:${shell_ver}" . ; done
 ```
+
