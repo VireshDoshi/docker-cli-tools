@@ -17,6 +17,8 @@ jobs:
       script: ./build aws-shell
     - stage: build-kubectl
       script: ./build kubectl
+    - stage: build-kops
+      script: ./build kops
     - stage: build-helm
       script: ./build helm
     - stage: build-serverless
