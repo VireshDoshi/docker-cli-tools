@@ -12,14 +12,14 @@ RUN apk add --no-cache --update --virtual .build-deps \
     less \
     python3 && \
     adduser -D -u 1000 kubeuser && \
-    curl -OL ${kubectl_url} && \
-    mv kubectl /usr/bin/kubectl && \
-    chmod a+x /usr/bin/kubectl && \
-    pip3 install awscl && \
+    curl -OL ${kops_url} && \
+    mv kops-linux-amd64 /usr/bin/kops && \
+    chmod a+x /usr/bin/kops && \
+    pip3 install awscli && \
     apk del .build-deps
 
 WORKDIR /cfg
 ENV HOME=/home/kubeuser
 USER kubeuser
 
-ENTRYPOINT ["/usr/bin/kubectl"]
+ENTRYPOINT ["/usr/bin/kops"]
