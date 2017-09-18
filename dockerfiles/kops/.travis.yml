@@ -1,0 +1,13 @@
+services:
+  - docker
+
+before_script:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" 
+
+script:
+  - for rel in `cat releases`; do export k8s_ver="${rel}" && docker build --build-arg KUBECTL_VERSION="${k8s_ver}" -t "richarvey/kubectl:${k8s_ver}" . ; done
+  - for rel in `cat releases`; do export k8s_ver="${rel}" && docker push "richarvey/kubectl:${k8s_ver}" ; done
+  - latest=`cat latest` && docker tag richarvey/kubectl:${latest} richarvey/kubectl:latest && docker push "richarvey/kubectl:latest"
+
+notifications:
+  slack: ngineered:EIKJFrzibOe0TwUhLXNe8Q2Q

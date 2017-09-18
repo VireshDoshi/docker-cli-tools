@@ -2,6 +2,10 @@ kubectl() {
   docker run -it -v ~/:/home/kubeuser/ -v `pwd`:/cfg -v ~/.kube:/home/kubeuser/.kube --rm richarvey/kubectl:latest "$@";
 }
 
+kops() {
+  docker run -it -v ~/:/home/kubeuser/ -v `pwd`:/cfg -v ~/.kube:/home/kubeuser/.kube --rm richarvey/kops:latest "$@";
+}
+
 aws() {
   docker run -it -v ~/:/home/awsuser/ -v `pwd`:/cfg -v ~/.aws:/home/awsuser/.aws --rm richarvey/awscli:latest "$@";
 }
