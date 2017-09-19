@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub...
+      - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" 
+  build:
+    commands:
+      - echo Build started on `date`
+	  - for i in `ls dockerfiles`; do ./build $i ; done
