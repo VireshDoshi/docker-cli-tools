@@ -8,5 +8,5 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - ls -lar
+      - chmod 755 build.sh
       - for i in `ls dockerfiles`; do ./build.sh $i ; done
