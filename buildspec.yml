@@ -8,4 +8,5 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - ls -lar
       - for i in `ls dockerfiles`; do ./build $i ; done

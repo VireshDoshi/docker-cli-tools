@@ -44,3 +44,5 @@ Build the docker images:
 ```
 for rel in `cat releases`; do export cli_ver="${rel}" && docker build --build-arg CLI_VERSION="${cli_ver}" -t "awscli:${cli_ver}" . ; done
 ```
+
+

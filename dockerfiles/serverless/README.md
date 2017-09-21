@@ -44,3 +44,5 @@ Build the docker images:
 ```
 for rel in `cat releases`; do export serverless_ver="${rel}" && docker build --build-arg SERVERLESS_VERSION="${serverless_ver}" -t "serverless:${serverless_ver}" . ; done
 ```
+
+
