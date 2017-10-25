@@ -8,6 +8,7 @@ RUN apk update && \
     apk add --no-cache --update \
     groff \
     less \
+    bash \
     python3 && \
     adduser -D -u 1000 awsuser && \
     pip3 install awscli==${VERSION}
